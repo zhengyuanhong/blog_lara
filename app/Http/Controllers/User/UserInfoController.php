@@ -19,7 +19,8 @@ class UserInfoController extends Controller
 
     public function message(){
         $type = 'message';
-        return view('users.message',compact('type'));
+        $user = User::query()->find(Auth::id());
+        return view('users.message',compact('type','user'));
     }
 
     public function set(){

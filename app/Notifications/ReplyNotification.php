@@ -38,11 +38,13 @@ class ReplyNotification extends Notification
     {
         return [
             'user_id' => $this->comment->user_id,
+            'reply_user_id' => $this->comment->reply_user_id ?? 'empty',
             'username' => $this->comment->user->name,
+            'content' => $this->comment->content,
             'article_id' => $this->comment->article_id,
             'link' => route('article.detail', ['article' => $this->comment->article->id]),
             'article_title' => $this->comment->article->title,
-            'time' => app()->make('time_format')->timeFormat($this->comment->created_at)
+            'time' => $this->comment->created_at
         ];
     }
 

@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'IndexController@index');
 //文章
 Route::get('/write', 'ArticleController@write')->name('article.write');
-Route::post('/article-add', 'ArticleController@add')->name('article.add');
+Route::post('/article-add', 'ArticleController@add')->name('article.add')->middleware('checkAuth');
 Route::get('/detail/{article}', 'ArticleController@detail')->name('article.detail');
 Route::get('/detail/edit/{article}', 'ArticleController@editShow')->name('article.detail.edit.show')->middleware('checkAuth');
 Route::post('/detail/edit', 'ArticleController@update')->name('article.detail.edit')->middleware('checkAuth');
