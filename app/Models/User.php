@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Hash;
  * @property string password 密码
  * @property string rich 财富
  * @property string name 用户名
+ * @property string sign 签名
  */
 class User extends Authenticatable
 {
@@ -26,7 +27,7 @@ class User extends Authenticatable
     protected $table = 'users';
 
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'sign', 'sex'
     ];
     /**
      * The attributes that should be hidden for arrays.
@@ -50,8 +51,9 @@ class User extends Authenticatable
         return $this->hasMany(Article::class, 'user_id', 'id');
     }
 
-    public function comments(){
-        return $this->hasMany(Comment::class,'user_id','id');
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'user_id', 'id');
     }
 
     public function category()
@@ -80,6 +82,13 @@ class User extends Authenticatable
             return '该昵称已存在';
         }
 
+        $res = self::checkPassword($data);
+        if($res) return $res;
+        return null;
+    }
+
+    public static function checkPassword($data)
+    {
         if (strlen($data['password']) < 8) {
             return '密码太短，不得少于8位';
         }
@@ -87,8 +96,17 @@ class User extends Authenticatable
         if ($data['repassword'] != $data['password']) {
             return '密码不一致';
         }
+    }
 
-        return null;
+    public static function resetPassword($data)
+    {
+        $res = self::checkPassword($data);
+        if($res) return $res;
+        if (Hash::check($data['nowpassword'], User::find(Auth::id())->password)) {
+            Auth::user()->update(['password' => Hash::make($data['password'])]);
+            return 'update';
+        }
+        return '原密码不正确';
     }
 
     public static function register($data)
@@ -120,14 +138,15 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Article', 'favorite', 'user_id', 'article_id')->withTimestamps();
     }
 
-    public function isCollect($article_id){
-        return $this->collectArt()->wherePivot('article_id',$article_id)->exists();
+    public function isCollect($article_id)
+    {
+        return $this->collectArt()->wherePivot('article_id', $article_id)->exists();
     }
 
     public function collection($article_id)
     {
         $is_exists = $this->isCollect($article_id);
-        if($is_exists){
+        if ($is_exists) {
             $this->collectArt()->detach($article_id);
             //取消收藏成功
             return false;
@@ -139,28 +158,29 @@ class User extends Authenticatable
 
     public static function ownArticle()
     {
-        $articles = User::find(Auth::id())->articles()->orderBy('created_at','desc')->paginate(20);
+        $articles = User::find(Auth::id())->articles()->orderBy('created_at', 'desc')->paginate(20);
         $data = [];
         foreach ($articles as $v) {
-            $temp=[];
+            $temp = [];
             $temp['id'] = $v->id;
             $temp['title'] = $v->title;
-            $temp['comment_num']=$v->comments()->count();
+            $temp['comment_num'] = $v->comments()->count();
             $temp['created_at'] = app()->make('time_format')->timeFormat($v->created_at);
-            $data[]=$temp;
+            $data[] = $temp;
         }
         return $data;
     }
 
-    public static function favoriteArticles(){
-        $favorite_articles = User::query()->find(Auth::id())->collectArt()->orderBy('favorite.created_at','desc')->paginate(20);
+    public static function favoriteArticles()
+    {
+        $favorite_articles = User::query()->find(Auth::id())->collectArt()->orderBy('favorite.created_at', 'desc')->paginate(20);
         $data = [];
         foreach ($favorite_articles as $v) {
-            $temp=[];
+            $temp = [];
             $temp['id'] = $v->id;
             $temp['title'] = $v->title;
             $temp['created_at'] = app()->make('time_format')->timeFormat($v->pivot->created_at);
-            $data[]=$temp;
+            $data[] = $temp;
         }
         return $data;
 

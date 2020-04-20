@@ -19,13 +19,17 @@ class UserInfoController extends Controller
 
     public function message(){
         $type = 'message';
-        $user = User::query()->find(Auth::id());
+        $user = Auth::user();
+        if($user->unreadNotifications()->count()>0){
+            $user->unreadNotifications->markAsRead();
+        }
         return view('users.message',compact('type','user'));
     }
 
     public function set(){
         $type = 'set';
-        return view('users.set',compact('type'));
+        $user = Auth::user();
+        return view('users.set',compact('type','user'));
     }
 
     public function userInfo(User $user){

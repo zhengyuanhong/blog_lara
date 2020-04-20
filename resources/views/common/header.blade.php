@@ -35,7 +35,9 @@
             @auth
                 <li class="layui-nav-item">
                     <a class="fly-nav-avatar" href="javascript:;">
+                        @if(request()->user()->unreadNotifications->count() > 0)
                         <i class="layui-badge fly-badge-vip layui-hide-xs">{{request()->user()->unreadNotifications->count()}}</i>
+                        @endif
                         <cite class="layui-hide-xs">{{request()->user()->name}}</cite>
                         <img src="{{request()->user()->avatar}}">
                     </a>
@@ -44,7 +46,6 @@
                                                                                                   style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>我的主页</a>
                         </dd>
                         <dd><a href="{{route('user.set')}}"><i class="layui-icon">&#xe620;</i>基本设置</a></dd>
-
                         <dd><a style="text-align: center;" href="{{route('user.message')}}">我的消息：<span style="color: red;">{{request()->user()->unreadNotifications->count()}}</span></a>
                         </dd>
                         <hr style="margin: 5px 0;">

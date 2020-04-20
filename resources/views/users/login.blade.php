@@ -11,7 +11,7 @@
       <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
         <div class="layui-tab-item layui-show">
           <div class="layui-form layui-form-pane">
-            <form method="post" action="{{url('/login')}}">
+            <form method="post" action="{{route('user.post.login')}}">
               @csrf
               <div class="layui-form-item">
                 <label for="L_email" class="layui-form-label">邮箱</label>

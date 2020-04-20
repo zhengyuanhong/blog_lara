@@ -41,9 +41,16 @@ class Comment extends Model
             $res['user'] = Auth::user();
             return $res;
         }
+
         /** @var User $user */
         $user = User::query()->where('name',$content['username'])->first();
 //            $user_link = '<a href="/users/{$user->id}">@'.$content["username"].' </a> ';
+
+        //不能给自己回复
+        if($data['user_id'] == $user->id){
+            return false;
+        }
+
         $user_link = sprintf('<a href="/users/%d">@%s </a>',$user->id,$user->name);
         //TODO 回复通知
         $data['reply_user_id'] = $user->id;

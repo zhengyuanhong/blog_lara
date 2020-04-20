@@ -13,6 +13,9 @@ class CommentController extends Controller
 //        $this->authorize('update',Comment::class);
         $data = $request->except('_token');
         $res = Comment::saveReply($data);
+        if($res == false){
+            return Response()->json(['code'=>201,'msg'=>'不能给自己回复']);
+        }
         return Response()->json(['code'=>200,'msg'=>'发布成功','data'=>$res]);
     }
 }

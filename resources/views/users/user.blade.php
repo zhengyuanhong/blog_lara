@@ -21,7 +21,7 @@
             <i class="iconfont icon-shijian"></i><span>{{$user->created_at}} 加入</span>
         </p>
 
-        <p class="fly-home-sign">（人生仿若一场修行）</p>
+        <p class="fly-home-sign">{{$user->sign??'（人生仿若一场修行）'}}</p>
 
         <div class="fly-sns" data-user="">
             <a href="{{route('article.write')}}" class="layui-btn layui-btn-primary fly-imActive" data-type="addFriend">写文章</a>
