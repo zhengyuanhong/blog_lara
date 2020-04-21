@@ -39,7 +39,7 @@ class UserController extends Controller
         return Response()->json(
             [
                 'code' => 200,
-                'msg' => '修改成功',
+                'msg' => '上传成功',
                 'data' =>
                     [
                         'path' => User::saveAvatar($path),

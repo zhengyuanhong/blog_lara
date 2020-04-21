@@ -116,7 +116,7 @@
                 }
                 ,done: function(res){
                     if(res.code > 0){
-                        return layer.msg('成功');
+                        return layer.msg(res.msg);
                     }
                 }
             });
