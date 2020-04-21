@@ -27,7 +27,7 @@ class User extends Authenticatable
     protected $table = 'users';
 
     protected $fillable = [
-        'name', 'email', 'password', 'sign', 'sex'
+        'name', 'email', 'password', 'sign', 'sex','avatar'
     ];
     /**
      * The attributes that should be hidden for arrays.
@@ -183,6 +183,11 @@ class User extends Authenticatable
             $data[] = $temp;
         }
         return $data;
+    }
 
+    public static function saveAvatar($path){
+        $url = env('APP_URL').'/storage/'.$path;
+        Auth::user()->update(['avatar'=>$url]);
+        return $url;
     }
 }

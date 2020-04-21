@@ -30,6 +30,7 @@ Route::namespace('api')->group(function () {
     Route::get('/delete-message','UserController@delMsg')->middleware('checkAuth');
     Route::post('/set-info','UserController@setInfo')->middleware('checkAuth');
     Route::post('/set-pass','UserController@setPassword')->middleware('checkAuth');
+    Route::post('/upload-avatar','UserController@uploadAvatar')->middleware('checkAuth');
 });
 
 //个人信息

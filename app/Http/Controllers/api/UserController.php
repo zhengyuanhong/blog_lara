@@ -9,28 +9,41 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function delMsg(){
+    public function delMsg()
+    {
         Auth::user()->notifications()->delete();
-        return Response()->json(['code'=>200,'msg'=>'已清空']);
+        return Response()->json(['code' => 200, 'msg' => '已清空']);
     }
 
-    public function setInfo(Request $request){
-        $data = $request->except('_token','email');
+    public function setInfo(Request $request)
+    {
+        $data = $request->except('_token', 'email');
         $user = Auth::user();
         $user->update($data);
-        return Response()->json(['code'=>200,'msg'=>'修改成功']);
+        return Response()->json(['code' => 200, 'msg' => '修改成功']);
     }
 
-    public function setPassword(Request $request){
+    public function setPassword(Request $request)
+    {
         $data = $request->except('_token');
         $res = User::resetPassword($data);
-        if($res != 'update'){
-            return Response()->json(['code'=>201,'msg'=>$res]);
+        if ($res != 'update') {
+            return Response()->json(['code' => 201, 'msg' => $res]);
         }
-        return Response()->json(['code'=>200,'msg'=>'修改成功']);
+        return Response()->json(['code' => 200, 'msg' => '修改成功']);
     }
 
-    public function uploadAvatar(){
-
+    public function uploadAvatar(Request $request)
+    {
+        $path = $request->file('file')->store('avatars', 'public');
+        return Response()->json(
+            [
+                'code' => 200,
+                'msg' => '修改成功',
+                'data' =>
+                    [
+                        'path' => User::saveAvatar($path),
+                    ]
+            ]);
     }
 }

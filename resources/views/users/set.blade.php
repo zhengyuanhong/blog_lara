@@ -53,10 +53,10 @@
                         <div class="layui-form-item">
                             <div class="avatar-add">
                                 <p>建议尺寸168*168，支持jpg、png、gif，最大不能超过50KB</p>
-                                <button type="button" class="layui-btn upload-img">
+                                <button type="button" id="upload" class="layui-btn upload-img">
                                     <i class="layui-icon">&#xe67c;</i>上传头像
                                 </button>
-                                <img src="{{$user->avatar}}">
+                                <img id="avatar" src="{{$user->avatar}}">
                                 <span class="loading"></span>
                             </div>
                         </div>
@@ -101,9 +101,26 @@
 
 @section('script')
     <script>
-        layui.use(['jquery', 'form'], function () {
+        layui.use(['jquery', 'form','upload'], function () {
             var $ = layui.jquery
             var form = layui.form
+            var upload = layui.upload
+
+            var uploadInst = upload.render({
+                elem: '#upload'
+                ,url: '/upload-avatar' //改成您自己的上传接口
+                ,before: function(obj){
+                    obj.preview(function(index, file, result){
+                        $('#avatar').attr('src', result);
+                    });
+                }
+                ,done: function(res){
+                    if(res.code > 0){
+                        return layer.msg('成功');
+                    }
+                }
+            });
+
 
             form.on('submit(info)', function (data) {
                 $.ajax({
