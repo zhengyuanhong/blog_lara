@@ -7,7 +7,7 @@
                 <div class="fly-panel" style="margin-bottom: 0;">
 
                     <div class="fly-panel-title fly-filter">
-                       呵呵呵呵...
+                        青年时种下什么,老年时就收获什么
                     </div>
                     @foreach($article as $a)
                         <ul class="fly-list">
@@ -68,22 +68,10 @@
                     </div>
                 </div>
 
-                <div class="fly-panel fly-rank fly-rank-reply" id="LAY_replyRank">
-                    <h3 class="fly-panel-title">回贴周榜</h3>
-                    <dl>
-                        <!--<i class="layui-icon fly-loading">&#xe63d;</i>-->
-                        <dd>
-                            <a href="users/home.html">
-                                <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"><cite>贤心</cite><i>106次回答</i>
-                            </a>
-                        </dd>
-                    </dl>
-                </div>
-
                 <div class="fly-panel fly-link">
                     <h3 class="fly-panel-title">友情链接</h3>
                     <dl class="fly-panel-main">
-                        <dd><a href="http://www.layui.com/" target="_blank">layui</a>
+                        <dd><a href="/" target="_blank">暂无</a>
                         <dd>
                     </dl>
                 </div>
