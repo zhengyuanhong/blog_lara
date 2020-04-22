@@ -33,4 +33,12 @@ return [
         realpath(storage_path('framework/views'))
     ),
 
+    'web_config'=>[
+        'name'=>env('NAME','左治理'),
+        'keywords'=>env('KEYWORDS','左治理，记录生活'),
+        'desc'=>env('DESC','青年时种下什么,老年时就收获什么'),
+        'icp'=>env('ICP','赣ICP备18013848号-1'),
+        'developer'=>env('DEVELOPER','zhengyuanhong'),
+        'url'=>env('APP_URL','http://www.hellozheng.cn')
+    ]
 ];

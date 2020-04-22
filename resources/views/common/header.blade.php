@@ -2,7 +2,7 @@
     <div class="layui-container">
         <a class="fly-logo" href="/">
             {{--<img src="/res/images/logo.png" alt="layui">--}}
-            <text style="color: white;font-weight: bold;font-size: 40px;">FLY</text>
+            <text style="color: white;font-weight: bold;font-size: 30px;">{{$config['name']}}</text>
         </a>
         {{--<ul class="layui-nav fly-nav layui-hide-xs">--}}
         {{--<li class="layui-nav-item layui-this">--}}
@@ -18,10 +18,10 @@
 
         <ul class="layui-nav fly-nav-user">
 
-            <!-- 未登入的状态 -->
             @guest
+                <!-- 未登入的状态 -->
                 <li class="layui-nav-item">
-                    <a class="iconfont icon-touxiang layui-hide-xs" href="../users/login.html"></a>
+                    <a class="iconfont icon-touxiang layui-hide-xs" href="{{url('login')}}"></a>
                 </li>
                 <li class="layui-nav-item">
                     <a href="{{url('login')}}">登入</a>
@@ -31,8 +31,8 @@
                 </li>
             @endguest
 
-        <!-- 登入后的状态 -->
             @auth
+                <!-- 登入后的状态 -->
                 <li class="layui-nav-item">
                     <a class="fly-nav-avatar" href="javascript:;">
                         @if(request()->user()->unreadNotifications->count() > 0)
