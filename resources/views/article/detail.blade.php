@@ -6,30 +6,14 @@
             <div class="layui-col-md8 content detail">
                 <div class="fly-panel detail-box">
                     <h1>{{$article->title}}</h1>
-                    <div class="fly-detail-info">
-                        <!-- <span class="layui-badge">审核中</span> -->
-                        <span class="layui-badge layui-bg-green fly-detail-column">动态</span>
-
-                        <span class="layui-badge" style="background-color: #999;">未结</span>
-                        <!-- <span class="layui-badge" style="background-color: #5FB878;">已结</span> -->
-
-                        <span class="layui-badge layui-bg-black">置顶</span>
-                        <span class="layui-badge layui-bg-red">精帖</span>
-
-                        <div class="fly-admin-box" data-id="123">
-                            <span class="layui-btn layui-btn-xs jie-admin" type="del">删除</span>
-
-                            <span class="layui-btn layui-btn-xs jie-admin" type="set" field="stick" rank="1">置顶</span>
-                            <!-- <span class="layui-btn layui-btn-xs jie-admin" type="set" field="stick" rank="0" style="background-color:#ccc;">取消置顶</span> -->
-
-                            <span class="layui-btn layui-btn-xs jie-admin" type="set" field="status" rank="1">加精</span>
-                            <!-- <span class="layui-btn layui-btn-xs jie-admin" type="set" field="status" rank="0" style="background-color:#ccc;">取消加精</span> -->
-                        </div>
-                        <span class="fly-list-nums">
-            <a href="#comment"><i class="iconfont" title="回答">&#xe60c;</i>{{$article->comments()->count()}}</a>
-          </span>
-                    </div>
-                    <div class="detail-about">
+                    {{--<div class="fly-detail-info">--}}
+                        {{--<!-- <span class="layui-badge">审核中</span> -->--}}
+                        {{--<div class="fly-admin-box" data-id="123">--}}
+                            {{--<!-- <span class="layui-btn layui-btn-xs jie-admin" type="set" field="stick" rank="0" style="background-color:#ccc;">取消置顶</span> -->--}}
+                            {{--<!-- <span class="layui-btn layui-btn-xs jie-admin" type="set" field="status" rank="0" style="background-color:#ccc;">取消加精</span> -->--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    <div class="detail-about" style="margin-top: 20px;">
                         <a class="fly-avatar" href="{{route('user.detail',['user'=>$article->user_id])}}">
                             <img src="{{$article->author->avatar}}" alt="{{$article->author->name}}">
                         </a>
@@ -38,10 +22,14 @@
                                 <cite>{{$article->author->name}}</cite>
                                 <i class="iconfont icon-renzheng" title="认证信息：dd"></i>
                             </a>
-                            <span>{{app()->make('time_format')->timeFormat($article->created_at)}}</span>
+                            <span>分类：{{$article->category->name}}</span>
+                            <span>{{app()->make('time_format')->timeFormat($article->created_at)}} 发布</span>
                         </div>
                         <div class="detail-hits" id="LAY_jieAdmin" data-id="{{$article->id}}">
                             <span style="padding-right: 10px; color: #FF7200">财富：{{$article->author->rich}}</span>
+                            <span>
+                            <a href="#comment">评论：{{$article->comments()->count()}}</a>
+                            </span>
                             @auth
                                 @if($article->user_id != Request()->user()->id)
                                 <span class="layui-btn layui-btn-xs layui-btn-warm" type="edit"><a data-article="{{$article->id}}" id="collect">{{$article->author->isCollect($article->id)?'取消收藏':'收藏此贴'}}</a></span>

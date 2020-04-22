@@ -25,10 +25,10 @@
                                 <div class="fly-list-info">
                                     <a href="{{route('user.detail',['user'=>$a->user_id])}}" link>
                                         <cite>{{$a->username}}</cite>
-                                        <!--
-                                        <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                                        <i class="layui-badge fly-badge-vip">VIP3</i>
-                                        -->
+                                        {{--<!----}}
+                                        {{--<i class="iconfont icon-renzheng" title="认证信息：XXX"></i>--}}
+                                        {{--<i class="layui-badge fly-badge-vip">VIP3</i>--}}
+                                        {{---->--}}
                                     </a>
                                     <span>{{app()->make('time_format')->timeFormat($a->created_at)}}</span>
 
@@ -38,7 +38,7 @@
                                 </span>
                                 </div>
                                 <div class="fly-list-badge">
-                                    <!--<span class="layui-badge layui-bg-red">精帖</span>-->
+                                    {{--<!--<span class="layui-badge layui-bg-red">精帖</span>-->--}}
                                 </div>
                             </li>
                         </ul>
@@ -69,10 +69,30 @@
                 </div>
 
                 <div class="fly-panel fly-link">
+                    <h3 class="fly-panel-title">文章分类</h3>
+                    <dl class="fly-panel-main">
+                        @if(!empty($category))
+                            @foreach($category as $v)
+                                <dd><a href="/?category={{$v->id}}" >{{$v->name}}</a>
+                                <dd>
+                            @endforeach
+                        @else
+                            <dd>暂无<dd>
+                        @endif
+                    </dl>
+                </div>
+
+                <div class="fly-panel fly-link">
                     <h3 class="fly-panel-title">友情链接</h3>
                     <dl class="fly-panel-main">
-                        <dd><a href="/" target="_blank">暂无</a>
+                        @if(!empty($fineLink))
+                            @foreach($fineLink as $v)
+                        <dd><a href="{{$v->link}}" target="_blank">{{$v->name}}</a>
                         <dd>
+                            @endforeach
+                            @else
+                            <dd>暂无<dd>
+                            @endif
                     </dl>
                 </div>
 

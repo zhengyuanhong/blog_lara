@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -44,6 +43,13 @@ class Article extends Model
     public function category()
     {
         return $this->belongsTo(Categories::class, 'category_id', 'id');
+    }
+
+    public function scopeCategory($query,$param){
+        if($param){
+            return $query->where('articles.category_id',$param);
+        }
+        return $query;
     }
 
     /**
