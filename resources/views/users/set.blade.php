@@ -67,7 +67,8 @@
                             <div class="layui-form-item">
                                 <label for="L_nowpass" class="layui-form-label">当前密码</label>
                                 <div class="layui-input-inline">
-                                    <input type="password" id="L_nowpass" name="nowpassword" required lay-verify="required"
+                                    <input type="password" id="L_nowpass" name="nowpassword" required
+                                           lay-verify="required"
                                            autocomplete="off" class="layui-input">
                                 </div>
                             </div>
@@ -82,7 +83,8 @@
                             <div class="layui-form-item">
                                 <label for="L_repass" class="layui-form-label">确认密码</label>
                                 <div class="layui-input-inline">
-                                    <input type="password" id="L_repass" name="repassword" required lay-verify="required"
+                                    <input type="password" id="L_repass" name="repassword" required
+                                           lay-verify="required"
                                            autocomplete="off" class="layui-input">
                                 </div>
                             </div>
@@ -101,21 +103,23 @@
 
 @section('script')
     <script>
-        layui.use(['jquery', 'form','upload'], function () {
+        layui.use(['jquery', 'form', 'upload'], function () {
             var $ = layui.jquery
             var form = layui.form
             var upload = layui.upload
 
             var uploadInst = upload.render({
                 elem: '#upload'
-                ,url: '/upload-avatar' //改成您自己的上传接口
-                ,before: function(obj){
-                    obj.preview(function(index, file, result){
+                , url: '/upload-avatar', //改成您自己的上传接口
+                size:0,
+                exts:'jpg|png|gif|bmp|jpeg'
+                , before: function (obj) {
+                    obj.preview(function (index, file, result) {
                         $('#avatar').attr('src', result);
                     });
                 }
-                ,done: function(res){
-                    if(res.code > 0){
+                , done: function (res) {
+                    if (res.code > 0) {
                         return layer.msg(res.msg);
                     }
                 }
@@ -129,7 +133,7 @@
                     data: data.field,
                     dataType: 'JSON',
                     success: function (res) {
-                        if(res.code==200){
+                        if (res.code == 200) {
                             layer.msg(res.msg)
                         }
                     }
@@ -144,9 +148,9 @@
                     data: data.field,
                     dataType: 'JSON',
                     success: function (res) {
-                        if(res.code==200){
+                        if (res.code == 200) {
                             layer.msg(res.msg)
-                        }else{
+                        } else {
                             layer.msg(res.msg)
                         }
                     }

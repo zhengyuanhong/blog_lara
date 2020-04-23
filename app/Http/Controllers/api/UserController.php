@@ -35,15 +35,18 @@ class UserController extends Controller
 
     public function uploadAvatar(Request $request)
     {
-        $path = $request->file('file')->store('avatars', 'public');
-        return Response()->json(
-            [
-                'code' => 200,
-                'msg' => '上传成功',
-                'data' =>
-                    [
-                        'path' => User::saveAvatar($path),
-                    ]
-            ]);
+        $file = $request->file('file');
+        $data = [];
+        //最大只能1M
+        if($file->getSize()/1024 > 1024*1024){
+            $data['code'] = 201;
+            $data['msg'] = '图片不能大于1M';
+            return Response()->json($data);
+        }
+        $path = $file->store('avatars', 'public');
+        $data['code'] = 200;
+        $data['msg'] = '上传成功';
+        $data['data']['path'] = User::saveAvatar($path);
+        return Response()->json($data);
     }
 }
