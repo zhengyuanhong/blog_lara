@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ArticleRequest;
+use App\Models\Ads;
 use App\Models\Article;
 use App\Models\Categories;
 use App\Models\User;
@@ -20,7 +21,9 @@ class ArticleController extends Controller
             ->resentArticle()
             ->limit(10)
             ->get();
-        return view('article.detail',compact('article','comments','resentArticle'));
+
+        $adForText = Ads::query()->getAd('text')->get();
+        return view('article.detail',compact('article','comments','resentArticle','adForText'));
     }
 
     public function write(){

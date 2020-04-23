@@ -7,11 +7,11 @@
                 <div class="fly-panel detail-box">
                     <h1>{{$article->title}}</h1>
                     {{--<div class="fly-detail-info">--}}
-                        {{--<!-- <span class="layui-badge">审核中</span> -->--}}
-                        {{--<div class="fly-admin-box" data-id="123">--}}
-                            {{--<!-- <span class="layui-btn layui-btn-xs jie-admin" type="set" field="stick" rank="0" style="background-color:#ccc;">取消置顶</span> -->--}}
-                            {{--<!-- <span class="layui-btn layui-btn-xs jie-admin" type="set" field="status" rank="0" style="background-color:#ccc;">取消加精</span> -->--}}
-                        {{--</div>--}}
+                    {{--<!-- <span class="layui-badge">审核中</span> -->--}}
+                    {{--<div class="fly-admin-box" data-id="123">--}}
+                    {{--<!-- <span class="layui-btn layui-btn-xs jie-admin" type="set" field="stick" rank="0" style="background-color:#ccc;">取消置顶</span> -->--}}
+                    {{--<!-- <span class="layui-btn layui-btn-xs jie-admin" type="set" field="status" rank="0" style="background-color:#ccc;">取消加精</span> -->--}}
+                    {{--</div>--}}
                     {{--</div>--}}
                     <div class="detail-about" style="margin-top: 20px;">
                         <a class="fly-avatar" href="{{route('user.detail',['user'=>$article->user_id])}}">
@@ -32,7 +32,9 @@
                             </span>
                             @auth
                                 @if($article->user_id != Request()->user()->id)
-                                <span class="layui-btn layui-btn-xs layui-btn-warm" type="edit"><a data-article="{{$article->id}}" id="collect">{{$article->author->isCollect($article->id)?'取消收藏':'收藏此贴'}}</a></span>
+                                    <span class="layui-btn layui-btn-xs layui-btn-warm" type="edit"><a
+                                                data-article="{{$article->id}}"
+                                                id="collect">{{$article->author->isCollect($article->id)?'取消收藏':'收藏此贴'}}</a></span>
                                 @endif
                                 @if($article->user_id == Request()->user()->id)
                                     <span class="layui-btn layui-btn-xs jie-admin" type="edit"><a
@@ -139,21 +141,23 @@
                     @endif
                 </dl>
 
-                <div class="fly-panel">
-                    <div class="fly-panel-title">
-                        这里可作为广告区域
+                @if($adForText)
+                    <div class="fly-panel">
+                        <div class="fly-panel-title">
+                            推荐
+                        </div>
+                        <div class="fly-panel-main">
+                            @foreach($adForText as $v)
+                                <a href="{{$v->content}}" target="_blank" class="fly-zanzhu" style="background-color: #5FB878;">{{$v->title}}dd</a>
+                            @endforeach
+                        </div>
                     </div>
-                    <div class="fly-panel-main">
-                        <a href="http://layim.layui.com/?from=fly" target="_blank" class="fly-zanzhu"
-                           time-limit="2017.09.25-2099.01.01" style="background-color: #5FB878;">LayIM 3.0 - layui
-                            旗舰之作</a>
-                    </div>
-                </div>
+                @endif
 
-                <div class="fly-panel" style="padding: 20px 0; text-align: center;">
-                    <img src="../../res/images/weixin.jpg" style="max-width: 100%;" alt="layui">
-                    <p style="position: relative; color: #666;">微信扫码关注 layui 公众号</p>
-                </div>
+                {{--<div class="fly-panel" style="padding: 20px 0; text-align: center;">--}}
+                    {{--<img src="../../res/images/weixin.jpg" style="max-width: 100%;" alt="layui">--}}
+                    {{--<p style="position: relative; color: #666;">微信扫码关注 layui 公众号</p>--}}
+                {{--</div>--}}
 
             </div>
         </div>
@@ -222,19 +226,19 @@
 
             var article_id = $('#collect').attr('data-article');
 
-            $('#collect').click(function(){
+            $('#collect').click(function () {
                 $.ajax({
                     url: '/collect-article',
                     method: 'get',
                     data: {
-                        article_id:article_id
+                        article_id: article_id
                     },
                     dataType: 'JSON',
                     success: function (res) {
-                        if(res.code=200){
+                        if (res.code = 200) {
                             layer.msg(res.msg)
                             $('#collect').text(res.collect_status)
-                        }else{
+                        } else {
                             layer.msg('操作失败')
                         }
                     }
