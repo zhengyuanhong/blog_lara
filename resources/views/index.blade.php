@@ -32,7 +32,6 @@
                                     </a>
                                     <span>{{app()->make('time_format')->timeFormat($a->created_at)}}</span>
 
-                                    <span class="fly-list-kiss layui-hide-xs" title="财富">财富：{{$a->user_rich}}</span>
                                     <span class="fly-list-nums">
                                     <i class="iconfont icon-pinglun1" title="回答"></i>{{$a->comments()->count()}}
                                 </span>

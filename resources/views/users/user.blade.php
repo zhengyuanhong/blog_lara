@@ -6,7 +6,7 @@
         <i class="iconfont icon-renzheng" title="Fly社区认证"></i>
         <h1>
             {{$user->name}}
-            <i class="iconfont icon-nan"></i>
+            <i class="iconfont {{$user->sex==1?'icon-nan':'icon-nv'}}"></i>
             <!-- <i class="iconfont icon-nv"></i>  -->
             <!--
             <span style="color:#c00;">（管理员）</span>
