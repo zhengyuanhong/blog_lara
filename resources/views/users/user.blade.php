@@ -57,18 +57,18 @@
 
             <div class="layui-col-md6 fly-home-da">
                 <div class="fly-panel">
-                    <h3 class="fly-panel-title">{{$user->name}} 最近的回答</h3>
+                    <h3 class="fly-panel-title">{{$user->name}} 最近参与评论</h3>
                     <ul class="home-jieda">
                         @if(empty($comments))
                             <div class="fly-none" style="min-height: 50px; padding:30px 0; height:auto;">
-                                <span>没有回答任何问题</span></div>
+                                <span>没有任何评论</span></div>
                         @else
                             @foreach($comments as $v)
                                 <li>
                                     <p>
                                         <span>{{app()->make('time_format')->timeFormat($v->created_at)}}</span>
                                         在<a href="{{route('article.detail',['article'=>$v->article->id])}}"
-                                            target="_blank">{{$v->article->title}}</a>中回答：
+                                            target="_blank">{{$v->article->title}}</a>中评论：
                                     </p>
                                     <div class="home-dacontent">
                                         {!! $v->content !!}

@@ -8,11 +8,7 @@
     <bookmark url="file://$PROJECT_DIR$/config/view.php" line="40" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bc06543-f1f4-4700-8cf6-b20ce93c3741" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users/user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/user.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="0bc06543-f1f4-4700-8cf6-b20ce93c3741" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,12 +117,12 @@
           <entry key="dummy" value="42" />
           <entry key="env" value="2" />
           <entry key="gitignore" value="6" />
-          <entry key="php" value="57567" />
+          <entry key="php" value="57568" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="21784" />
+          <entry key="Blade" value="21785" />
           <entry key="PHP" value="35783" />
           <entry key="PLAIN_TEXT" value="50" />
         </counts>
@@ -138,8 +134,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/users/user.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="65" selection-start-line="8" selection-start-column="65" selection-end-line="8" selection-end-column="65" />
+            <state relative-caret-position="315">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
         </entry>
@@ -535,18 +531,18 @@
       <workItem from="1587468029116" duration="5351000" />
       <workItem from="1587555150301" duration="8791000" />
       <workItem from="1587640570547" duration="3538000" />
-      <workItem from="1587731952704" duration="725000" />
+      <workItem from="1587731952704" duration="1661000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193327000" />
+    <option name="totallyTimeSpent" value="194263000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-14" y="2" width="1297" height="737" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27602905" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27602905" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -561,7 +557,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.23841059" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.23841059" />
       <window_info anchor="bottom" id="Thumbnails" order="12" weight="0.32924694" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -900,8 +896,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/users/user.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="65" selection-start-line="8" selection-start-column="65" selection-end-line="8" selection-end-column="65" />
+        <state relative-caret-position="315">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
