@@ -9,6 +9,7 @@
                     <div class="fly-panel-title fly-filter">
                         青年时种下什么,老年时就收获什么
                     </div>
+                    @if($article->count()>0)
                     @foreach($article as $a)
                         <ul class="fly-list">
                             <li>
@@ -42,6 +43,9 @@
                             </li>
                         </ul>
                     @endforeach
+                        @else
+                        <div style="padding: 10px 0;color: grey;text-align: center;">暂无内容</div>
+                    @endif
                     <div style="text-align: center;padding-bottom: 10px;">
                         @if($article->currentPage() == $article->onFirstPage())
                         @else
@@ -72,7 +76,7 @@
                     <dl class="fly-panel-main">
                         @if(!empty($category))
                             @foreach($category as $v)
-                                <dd><a href="/?category={{$v->id}}" >{{$v->name}}</a>
+                                <dd><a href="/?category={{$v['id']}}" >{{$v['name']}}</a>
                                 <dd>
                             @endforeach
                         @else
@@ -86,7 +90,7 @@
                     <dl class="fly-panel-main">
                         @if(!empty($fineLink))
                             @foreach($fineLink as $v)
-                        <dd><a href="{{$v->link}}" target="_blank">{{$v->name}}</a>
+                        <dd><a href="{{$v['link']}}" target="_blank">{{$v['name']}}</a>
                         <dd>
                             @endforeach
                             @else

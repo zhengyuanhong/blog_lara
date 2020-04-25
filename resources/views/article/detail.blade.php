@@ -141,22 +141,48 @@
                     @endif
                 </dl>
 
-                @if($adForText)
+                @if(empty($adForSponsor))
+                @else
                     <div class="fly-panel">
                         <div class="fly-panel-title">
-                            推荐
+                            赞助商
+                            <span style="padding: 0 3px;">-</span>
+                            <a href="#" class="fly-link fly-joinad">我要加入</a>
                         </div>
                         <div class="fly-panel-main">
-                            @foreach($adForText as $v)
-                                <a href="{{$v->content}}" target="_blank" class="fly-zanzhu" style="background-color: #5FB878;">{{$v->title}}dd</a>
+                            @foreach($adForSponsor as $v)
+                                @if(empty($v['content']))
+                                    <a href="{{$v['url']}}" target="_blank" class="fly-zanzhu"
+                                       style="background-color: #5FB878;">{{$v['title']}}</a>
+                                @else
+                                    <a href="{{$v['url']}}" target="_blank" rel="nofollow"
+                                       class="fly-zanzhu fly-zanzhu-img" style="background: none;">
+                                        <img src="{{$v['content']}}" alt="{{$v['title']}}">
+                                    </a>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+
+                @if(empty($adForOfficial))
+                @else
+                    <div class="fly-panel">
+                        <div class="fly-panel-title">
+                            官方推荐
+                        </div>
+                        <div class="fly-panel-main">
+                            @foreach($adForOfficial as $v)
+                                <a href="{{$v['url']}}" target="_blank" class="fly-zanzhu"
+                                   style="background-color: #5FB878;">{{$v['title']}}</a>
                             @endforeach
                         </div>
                     </div>
                 @endif
 
                 {{--<div class="fly-panel" style="padding: 20px 0; text-align: center;">--}}
-                    {{--<img src="../../res/images/weixin.jpg" style="max-width: 100%;" alt="layui">--}}
-                    {{--<p style="position: relative; color: #666;">微信扫码关注 layui 公众号</p>--}}
+                {{--<img src="../../res/images/weixin.jpg" style="max-width: 100%;" alt="layui">--}}
+                {{--<p style="position: relative; color: #666;">微信扫码关注 layui 公众号</p>--}}
                 {{--</div>--}}
 
             </div>

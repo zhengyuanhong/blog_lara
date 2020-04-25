@@ -20,8 +20,8 @@ class IndexController extends Controller
             ->orderBy('weight','desc')
             ->orderBy('created_at','desc')
         ->paginate(20);
-        $category = Categories::all();
-        $fineLink = FineLink::all();
+        $category = Categories::query()->where('is_show',1)->get()->toArray();
+        $fineLink = FineLink::all()->toArray();
         return view('index',compact('article','fineLink','category'));
     }
 }

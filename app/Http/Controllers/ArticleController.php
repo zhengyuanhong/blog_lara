@@ -21,9 +21,11 @@ class ArticleController extends Controller
             ->resentArticle()
             ->limit(10)
             ->get();
-
-        $adForText = Ads::query()->getAd('text')->get();
-        return view('article.detail',compact('article','comments','resentArticle','adForText'));
+        //推荐
+        $adForOfficial = Ads::query()->getAd('official')->get()->toArray();
+        //赞助商
+        $adForSponsor = Ads::query()->getAd('sponsor')->get()->toArray();
+        return view('article.detail',compact('article','comments','resentArticle','adForOfficial','adForSponsor'));
     }
 
     public function write(){
