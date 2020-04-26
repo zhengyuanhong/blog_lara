@@ -43,7 +43,7 @@ class RemoveImg extends Command
     }
 
     public function remove(string $dirname){
-        $path = storage_path('app\public\/'.$dirname);
+        $path = storage_path('app/public/'.$dirname);
         if(!is_dir($path)){
             return false;
         }
