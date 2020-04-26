@@ -123,14 +123,14 @@
           <entry key="env" value="270" />
           <entry key="gitignore" value="6" />
           <entry key="js" value="2" />
-          <entry key="php" value="67982" />
+          <entry key="php" value="68036" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Blade" value="23599" />
           <entry key="JavaScript" value="2" />
-          <entry key="PHP" value="44383" />
+          <entry key="PHP" value="44437" />
           <entry key="PLAIN_TEXT" value="318" />
         </counts>
       </usages-collector>
@@ -150,8 +150,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/RemoveImg.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="45" column="33" lean-forward="true" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
+            <state relative-caret-position="285">
+              <caret line="57" column="8" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
               <folding>
                 <element signature="e#40#71#0#PHP" expanded="true" />
               </folding>
@@ -539,12 +539,12 @@
       <workItem from="1587640570547" duration="3538000" />
       <workItem from="1587731952704" duration="2331000" />
       <workItem from="1587779898784" duration="22681000" />
-      <workItem from="1587901317817" duration="8848000" />
+      <workItem from="1587901317817" duration="9494000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="226462000" />
+    <option name="totallyTimeSpent" value="227108000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
@@ -909,8 +909,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Console/Commands/RemoveImg.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="45" column="33" lean-forward="true" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
+        <state relative-caret-position="285">
+          <caret line="57" column="8" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
           <folding>
             <element signature="e#40#71#0#PHP" expanded="true" />
           </folding>
