@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         //每周删本地图片文件
-        $schedule->command('z:remove')->weekly();
+//        $schedule->command('z:remove')->weekly();
     }
 
     /**
