@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\User;
+use App\Utils\Ucloud;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -35,18 +37,14 @@ class UserController extends Controller
 
     public function uploadAvatar(Request $request)
     {
-        $file = $request->file('file');
-        $data = [];
-        //最大只能1M
-        if($file->getSize()/1024 > 1024*1024){
-            $data['code'] = 201;
-            $data['msg'] = '图片不能大于1M';
+        $data = app()->make('util')->upload($request, 'avatars');
+        if ($data['code'] == 201) {
             return Response()->json($data);
         }
-        $path = $file->store('avatars', 'public');
-        $data['code'] = 200;
-        $data['msg'] = '上传成功';
-        $data['data']['path'] = User::saveAvatar($path);
+        Log::info('path:' . storage_path('app/public/' . $data['data']['src']));
+        $src = (new  Ucloud($data['key'], $data['data']['src']))->getKey($data['key']);
+        User::saveAvatar($src);
+        $data['data']['src'] = $src;
         return Response()->json($data);
     }
 }

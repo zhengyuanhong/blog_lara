@@ -2,6 +2,9 @@
 
 namespace App\Utils;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 class Util
 {
     public function timeFormat($time)
@@ -42,6 +45,23 @@ class Util
             $newStr .= $v;
         }
         return ['username' => $username, 'content' => $newStr];
+    }
+
+    public function upload(Request $request,$path,$option='public'):array{
+        $file = $request->file('file');
+        $size = $file->getSize();
+        $data=[];
+        if($size/1024 > 10240){
+            $data['code'] = 201;
+            $data['msg'] = '图片不能大于1M';
+            return $data;
+        }
+        $path = $file->store($path,$option);
+        $data['code'] = 200;
+        $data['msg'] = '上传成功';
+        $data['data']['src'] = $path;
+        $data['key'] =  Auth::id().':'.date('Y:m:d-H:i:s').':'.$file->getClientOriginalName();
+        return $data;
     }
 }
 

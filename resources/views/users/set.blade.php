@@ -111,7 +111,7 @@
             var uploadInst = upload.render({
                 elem: '#upload'
                 , url: '/upload-avatar', //改成您自己的上传接口
-                size:0,
+                size:10240,
                 exts:'jpg|png|gif|bmp|jpeg'
                 , before: function (obj) {
                     obj.preview(function (index, file, result) {

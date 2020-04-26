@@ -24,6 +24,7 @@ Route::get('/collect-article', 'ArticleController@favoriteArticle')->middleware(
 //评论
 Route::post('/article/reply', 'CommentController@reply')->middleware('checkAuth');
 
+
 Route::namespace('api')->group(function () {
     Route::get('/own-article', 'ArticleController@articleApi')->middleware('checkAuth');
     Route::get('/favorite-article', 'ArticleController@favoriteArticleApi')->middleware('checkAuth');
@@ -31,6 +32,8 @@ Route::namespace('api')->group(function () {
     Route::post('/set-info','UserController@setInfo')->middleware('checkAuth');
     Route::post('/set-pass','UserController@setPassword')->middleware('checkAuth');
     Route::post('/upload-avatar','UserController@uploadAvatar')->middleware('checkAuth');
+    //上传图片
+    Route::post('/upload-image','ArticleController@upload')->middleware('checkAuth');
 });
 
 //个人信息

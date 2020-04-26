@@ -186,8 +186,7 @@ class User extends Authenticatable
     }
 
     public static function saveAvatar($path){
-        $url = env('APP_URL').'/storage/'.$path;
-        Auth::user()->update(['avatar'=>$url]);
-        return $url;
+        Auth::user()->update(['avatar'=>$path]);
+        return $path;
     }
 }
