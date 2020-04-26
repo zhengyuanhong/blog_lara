@@ -54,6 +54,7 @@ class RemoveImg extends Command
                 if(!unlink($src)) echo '删除失败';
                 Log::info('删除成功:'.$src);
             }
+            Log::info('没有可删除的图片文件');
         }
         closedir($handle);
     }

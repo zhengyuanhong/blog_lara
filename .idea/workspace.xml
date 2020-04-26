@@ -11,6 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0bc06543-f1f4-4700-8cf6-b20ce93c3741" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/RemoveImg.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/RemoveImg.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -122,14 +123,14 @@
           <entry key="env" value="270" />
           <entry key="gitignore" value="6" />
           <entry key="js" value="2" />
-          <entry key="php" value="67955" />
+          <entry key="php" value="67982" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Blade" value="23599" />
           <entry key="JavaScript" value="2" />
-          <entry key="PHP" value="44356" />
+          <entry key="PHP" value="44383" />
           <entry key="PLAIN_TEXT" value="318" />
         </counts>
       </usages-collector>
@@ -146,11 +147,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/RemoveImg.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="57" column="25" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
+            <state relative-caret-position="57">
+              <caret line="45" column="33" lean-forward="true" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
               <folding>
                 <element signature="e#40#71#0#PHP" expanded="true" />
               </folding>
@@ -158,11 +159,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="27" column="35" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="36" />
+            <state relative-caret-position="460">
+              <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
               <folding>
                 <element signature="e#31#66#0#PHP" expanded="true" />
               </folding>
@@ -306,8 +307,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/api/UserController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/api/ArticleController.php" />
         <option value="$PROJECT_DIR$/app/Utils/Ucloud.php" />
-        <option value="$PROJECT_DIR$/app/Console/Commands/RemoveImg.php" />
         <option value="$PROJECT_DIR$/app/Console/Kernel.php" />
+        <option value="$PROJECT_DIR$/app/Console/Commands/RemoveImg.php" />
       </list>
     </option>
   </component>
@@ -452,6 +453,13 @@
             <path>
               <item name="ownObj" type="b2602c69:ProjectViewProjectNode" />
               <item name="ownObj" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Console" type="462c0819:PsiDirectoryNode" />
+              <item name="Commands" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ownObj" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ownObj" type="462c0819:PsiDirectoryNode" />
               <item name="storage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -531,16 +539,15 @@
       <workItem from="1587640570547" duration="3538000" />
       <workItem from="1587731952704" duration="2331000" />
       <workItem from="1587779898784" duration="22681000" />
-      <workItem from="1587901317817" duration="8591000" />
+      <workItem from="1587901317817" duration="8848000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="226205000" />
+    <option name="totallyTimeSpent" value="226462000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="704" extended-state="7" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22312045" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -557,7 +564,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.11383538" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.30823117" />
       <window_info anchor="bottom" id="Thumbnails" order="12" weight="0.32924694" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -890,22 +897,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Commands/RemoveImg.php">
+    <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="57" column="25" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
+        <state relative-caret-position="460">
+          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
           <folding>
-            <element signature="e#40#71#0#PHP" expanded="true" />
+            <element signature="e#31#66#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/RemoveImg.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="27" column="35" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="36" />
+        <state relative-caret-position="57">
+          <caret line="45" column="33" lean-forward="true" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
           <folding>
-            <element signature="e#31#66#0#PHP" expanded="true" />
+            <element signature="e#40#71#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
