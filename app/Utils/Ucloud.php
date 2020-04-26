@@ -3,7 +3,7 @@
 namespace App\Utils;
 use Illuminate\Support\Facades\Log;
 
-require_once(__DIR__ . '\..\Helper\Ucloud\proxy.php');
+require_once(__DIR__ . '/../Helper/Ucloud/proxy.php');
 
 class Ucloud
 {
