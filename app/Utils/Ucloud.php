@@ -36,8 +36,7 @@ class Ucloud
     public function getKey($key){
         $res = $this->upload();
         Log::info('key::'.$res['ETag']);
-        $src = config('util.ucloud.http').$key;
-        return $src;
+        return config('util.ucloud.http').$key;
     }
 }
 

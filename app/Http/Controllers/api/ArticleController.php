@@ -33,9 +33,8 @@ class ArticleController extends Controller
         if($data['code']==201){
             return Response()->json($data);
         }
-        $src = (new  Ucloud($data['key'], $data['data']['src']))->getKey($data['key']);
         $data['code'] = 0;
-        $data['data']['src'] = $src;
+        $data['data']['src'] = (new  Ucloud($data['key'], $data['data']['src']))->getKey($data['key']);
         $data['data']['style'] = 'display:inline-block;height:auto;max-with:100%';
         return Response()->json($data);
     }
