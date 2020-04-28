@@ -9,13 +9,7 @@
     <bookmark url="file://$PROJECT_DIR$/app/Utils/Ucloud.php" line="21" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bc06543-f1f4-4700-8cf6-b20ce93c3741" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ArticleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/ArticlePolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/ArticlePolicy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/article/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/article/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="0bc06543-f1f4-4700-8cf6-b20ce93c3741" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,13 +102,13 @@
           <entry key="jpg" value="2" />
           <entry key="js" value="4" />
           <entry key="log" value="7" />
-          <entry key="php" value="229" />
+          <entry key="php" value="230" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="64" />
+          <entry key="Blade" value="65" />
           <entry key="Image" value="9" />
           <entry key="JavaScript" value="4" />
           <entry key="PHP" value="165" />
@@ -127,12 +121,12 @@
           <entry key="env" value="270" />
           <entry key="gitignore" value="6" />
           <entry key="js" value="2" />
-          <entry key="php" value="68934" />
+          <entry key="php" value="68994" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="23700" />
+          <entry key="Blade" value="23760" />
           <entry key="JavaScript" value="2" />
           <entry key="PHP" value="45234" />
           <entry key="PLAIN_TEXT" value="318" />
@@ -154,7 +148,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ArticleController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="183">
@@ -201,18 +195,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="133" column="4" selection-start-line="133" selection-start-column="4" selection-end-line="133" selection-end-column="4" />
-              <folding>
-                <element signature="e#30#85#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/article/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="169">
@@ -233,8 +215,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/users/set.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="113" column="26" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
+            <state relative-caret-position="240">
+              <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -294,7 +285,6 @@
         <option value="$PROJECT_DIR$/app/Helper/Ucloud/proxy.php" />
         <option value="$PROJECT_DIR$/app/Helper/Ucloud/utils.php" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/resources/views/users/set.blade.php" />
         <option value="$PROJECT_DIR$/app/Helper/Ucloud/conf.php" />
         <option value="$PROJECT_DIR$/config/util.php" />
         <option value="$PROJECT_DIR$/app/Models/User.php" />
@@ -308,6 +298,7 @@
         <option value="$PROJECT_DIR$/app/Policies/ArticlePolicy.php" />
         <option value="$PROJECT_DIR$/resources/views/article/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ArticleController.php" />
+        <option value="$PROJECT_DIR$/resources/views/users/set.blade.php" />
       </list>
     </option>
   </component>
@@ -418,8 +409,9 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="width" value="1299" />
+    <option name="x" value="-12" />
+    <option name="y" value="-12" />
+    <option name="width" value="1584" />
     <option name="height" value="738" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -502,6 +494,13 @@
             <path>
               <item name="ownObj" type="b2602c69:ProjectViewProjectNode" />
               <item name="ownObj" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ownObj" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ownObj" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -577,15 +576,15 @@
       <workItem from="1587779898784" duration="22681000" />
       <workItem from="1587901317817" duration="12625000" />
       <workItem from="1587943353629" duration="5121000" />
-      <workItem from="1588072138336" duration="2648000" />
+      <workItem from="1588072138336" duration="4961000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="238008000" />
+    <option name="totallyTimeSpent" value="240321000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="704" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22958772" />
@@ -660,13 +659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="78" column="81" selection-start-line="78" selection-start-column="81" selection-end-line="78" selection-end-column="81" />
         </state>
       </provider>
     </entry>
@@ -853,13 +845,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/users/set.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="113" column="26" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/Access/AuthorizesRequests.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-152">
@@ -946,6 +931,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="64" column="86" selection-start-line="64" selection-start-column="86" selection-end-line="64" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/users/set.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
         </state>
       </provider>
     </entry>
