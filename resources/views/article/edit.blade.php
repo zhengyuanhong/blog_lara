@@ -12,7 +12,7 @@
                     </ul>
                     <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
                         <div class="layui-tab-item layui-show">
-                            <form action="/article-add" method="post">
+                            <form action="/detail/edit" method="post">
                                 <div class="layui-row layui-col-space15 layui-form-item">
                                     <div class="layui-col-md4">
                                         <label class="layui-form-label">所在专栏</label>
@@ -50,10 +50,9 @@
                                     </div>
                                 </div>
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-
-
+                                <input type="hidden" name="id" value="{{$article->id}}"/>
                                 <div class="layui-form-item">
-                                    <button class="layui-btn" lay-filter="add" lay-submit>立即更新</button>
+                                    <button class="layui-btn" lay-filter="edit" lay-submit>立即更新</button>
                                 </div>
                             </form>
                         </div>

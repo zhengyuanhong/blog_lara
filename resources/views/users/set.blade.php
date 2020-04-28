@@ -52,7 +52,7 @@
                     <div class="layui-form layui-form-pane layui-tab-item">
                         <div class="layui-form-item">
                             <div class="avatar-add">
-                                <p>建议尺寸168*168，支持jpg、png、gif，最大不能超过50KB</p>
+                                <p>建议尺寸168*168</p>
                                 <button type="button" id="upload" class="layui-btn upload-img">
                                     <i class="layui-icon">&#xe67c;</i>上传头像
                                 </button>
@@ -111,7 +111,7 @@
             var uploadInst = upload.render({
                 elem: '#upload'
                 , url: '/upload-avatar', //改成您自己的上传接口
-                size:10240,
+                size:0,
                 exts:'jpg|png|gif|bmp|jpeg'
                 , before: function (obj) {
                     obj.preview(function (index, file, result) {

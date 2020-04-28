@@ -46,11 +46,11 @@ class ArticleController extends Controller
         return view('article.edit',compact('article'));
     }
 
-    public function update(ArticleRequest $request){
-        $this->authorize('update',Article::class);
-        $request->validated();
-        $data = $request->except('_token');
-        Article::query()->update($data);
+    public function updateArticle(ArticleRequest $request){
+        $article_id = $request->get('id');
+        $request->validated('update',Article::query()->find($article_id));
+        $data = $request->except('_token','file','id');
+        Article::query()->find($article_id)->update($data);
         return view('tip.message')->with('msg','更新成功');
     }
 

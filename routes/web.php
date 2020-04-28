@@ -19,7 +19,7 @@ Route::get('/write', 'ArticleController@write')->name('article.write')->middlewa
 Route::post('/article-add', 'ArticleController@add')->name('article.add')->middleware('checkAuth');
 Route::get('/detail/{article}', 'ArticleController@detail')->name('article.detail');
 Route::get('/detail/edit/{article}', 'ArticleController@editShow')->name('article.detail.edit.show')->middleware('checkAuth');
-Route::post('/detail/edit', 'ArticleController@update')->name('article.detail.edit')->middleware('checkAuth');
+Route::post('/detail/edit', 'ArticleController@updateArticle')->name('article.detail.edit')->middleware('checkAuth');
 Route::get('/collect-article', 'ArticleController@favoriteArticle')->middleware('checkAuth');
 //评论
 Route::post('/article/reply', 'CommentController@reply')->middleware('checkAuth');
