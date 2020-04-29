@@ -15,7 +15,6 @@
             -->
         </h1>
 
-
         <p class="fly-home-info">
             <span style="color: #FF7200;">财富 {{$user->rich}}</span>
             <i class="iconfont icon-shijian"></i><span>{{$user->created_at}} 加入</span>

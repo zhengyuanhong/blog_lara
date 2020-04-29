@@ -44,4 +44,9 @@ class UserInfoController extends Controller
             ->get();
         return view('users.user',compact('type','user','comments','articles'));
     }
+
+    public function rechargePage(){
+        $type = 'recharge';
+        return view('users.recharge',compact('type'));
+    }
 }

@@ -23,6 +23,12 @@
         我的消息
         </a>
     </li>
+    <li class="layui-nav-item {{$type=='recharge'? 'layui-this':''}}">
+        <a href="{{route('user.recharge')}}">
+            <i class="layui-icon">&#xe611;</i>
+            充值中心
+        </a>
+    </li>
   </ul>
 
   <div class="site-tree-mobile layui-hide">

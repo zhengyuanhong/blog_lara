@@ -24,6 +24,10 @@ Route::get('/collect-article', 'ArticleController@favoriteArticle')->middleware(
 //评论
 Route::post('/article/reply', 'CommentController@reply')->middleware('checkAuth');
 
+//支付
+Route::get('/pay','WechatPaymentController@pay')->middleware('checkAuth');
+Route::get('/notify','WechatPaymentController@notify');
+
 
 Route::namespace('api')->group(function () {
     Route::get('/own-article', 'ArticleController@articleApi')->middleware('checkAuth');
@@ -42,7 +46,10 @@ Route::prefix('users')->namespace('User')->group(function () {
     Route::get('set', 'UserInfoController@set')->middleware('checkAuth')->name('user.set');
     Route::get('message', 'UserInfoController@message')->middleware('checkAuth')->name('user.message');
     Route::get('/{user}', 'UserInfoController@userInfo')->name('user.detail');
+    Route::get('/u/recharge', 'UserInfoController@rechargePage')->middleware('checkAuth')->name('user.recharge');
 });
+
+
 
 //登陆、注册、退出
 Route::namespace('User')->group(function () {
