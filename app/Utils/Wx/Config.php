@@ -7,9 +7,9 @@ class Config
     public $appid;
     public $app_secret;
     public $my_plugin_id;
-    public $notify_url = 'http://r304785w39.qicp.vip/notify';
+    public $notify_url = 'https://www.hellozheng.cn/notify';
     public $return_url = 'https://www.hellozheng.cn';
-    public $callback_url = 'http://r304785w39.qicp.vip/user/1';
+    public $callback_url = 'https://www.hellozheng.cn';
     public $url = 'https://api.xunhupay.com/payment/do.html';
 
     public function __construct()
