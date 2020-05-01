@@ -32,8 +32,8 @@ class WechatPaymentController extends Controller
 
     public function notify(Request $request){
         $data = $request->all();
-        Log::info('notify:',[$data]);
-        $this->wx_pay->notify($data);
-        return 'd';
+        $res = $this->wx_pay->notify($data);
+        if($res) Log::info('success 支付成功');
+        return $res;
     }
 }
