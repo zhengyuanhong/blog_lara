@@ -26,7 +26,7 @@ Route::post('/article/reply', 'CommentController@reply')->middleware('checkAuth'
 
 //支付
 Route::get('/pay','WechatPaymentController@pay')->middleware('checkAuth');
-Route::get('/notify','WechatPaymentController@notify');
+Route::post('/notify','WechatPaymentController@notify');
 
 
 Route::namespace('api')->group(function () {
