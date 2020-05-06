@@ -26,7 +26,7 @@ class Config
             'lang' => 'zh-cn', //必须的，zh-cn或en-us 或其他，根据语言显示页面
             'plugins' => $this->my_plugin_id,//必须的，根据自己需要自定义插件ID，唯一的，匹配[a-zA-Z\d\-_]+
             'appid' => $this->appid, //必须的，APPID
-            'trade_order_id' => time(), //必须的，网站订单ID，唯一的，匹配[a-zA-Z\d\-_]+
+            'trade_order_id' => $data['trade_order_id'], //必须的，网站订单ID，唯一的，匹配[a-zA-Z\d\-_]+
             'payment' => 'wechat',//必须的，支付接口标识：wechat(微信接口)|alipay(支付宝接口)
             'total_fee' => $data['total_fee'],//人民币，单位精确到分(测试账户只支持0.1元内付款)
             'title' => $data['title'], //必须的，订单标题，长度32或以内

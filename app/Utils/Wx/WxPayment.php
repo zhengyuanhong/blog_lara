@@ -38,7 +38,7 @@ class WxPayment extends Config {
         }
     }
 
-    public function notify($data){
+    public function notify($data,$callback){
         Log::info('notify :'.Auth::id());
         Log::info('notify $data=',[$data]);
         foreach ($data as $k=>$v){
@@ -65,23 +65,25 @@ class WxPayment extends Config {
         }
 
 //商户订单ID
-        $trade_order_id =$data['trade_order_id'];
+//        $trade_order_id =$data['trade_order_id'];
+//
+//        if($data['status']=='OD'){
+//            /************商户业务处理******************/
+//            //TODO:此处处理订单业务逻辑,支付平台会多次调用本接口(防止网络异常导致回调失败等情况)
+//            //     请避免订单被二次更新而导致业务异常！！！
+//            //     if(订单未处理){
+//            //         处理订单....
+//            //      }
+//            Log::info('success OD'.Auth::id().'::'.$trade_order_id);
+//            //....
+//            //...
+//            /*************商户业务处理 END*****************/
+//        }else{
+//            //处理未支付的情况
+//            Log::info('un success OD'.Auth::id().'::'.$trade_order_id);
+//        }
 
-        if($data['status']=='OD'){
-            /************商户业务处理******************/
-            //TODO:此处处理订单业务逻辑,支付平台会多次调用本接口(防止网络异常导致回调失败等情况)
-            //     请避免订单被二次更新而导致业务异常！！！
-            //     if(订单未处理){
-            //         处理订单....
-            //      }
-            Log::info('success OD'.Auth::id().'::'.$trade_order_id);
-            //....
-            //...
-            /*************商户业务处理 END*****************/
-        }else{
-            //处理未支付的情况
-            Log::info('un success OD'.Auth::id().'::'.$trade_order_id);
-        }
+        call_user_func($callback,$data);
         //以下是处理成功后输出，当支付平台接收到此消息后，将不再重复回调当前接口
         return true;
     }
