@@ -47,6 +47,7 @@ class UserInfoController extends Controller
 
     public function rechargePage(){
         $type = 'recharge';
-        return view('users.recharge',compact('type'));
+        $userWallet = User::userWallet(Auth::id());
+        return view('users.recharge',compact('type','userWallet'));
     }
 }

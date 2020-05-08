@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\PayService;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +28,7 @@ class User extends Authenticatable
     protected $table = 'users';
 
     protected $fillable = [
-        'name', 'email', 'password', 'sign', 'sex','avatar'
+        'name', 'email', 'password', 'sign', 'sex', 'avatar'
     ];
     /**
      * The attributes that should be hidden for arrays.
@@ -44,6 +45,15 @@ class User extends Authenticatable
             return;
         }
         $this->laravelNotify($instance);
+    }
+
+    public function wallet()
+    {
+        return $this->hasOne(Wallet::class, 'user_id', 'id');
+    }
+
+    public function order(){
+        return $this->hasMany(Order::class,'user_id','id');
     }
 
     public function articles()
@@ -71,6 +81,13 @@ class User extends Authenticatable
         return self::query()->where('email', $email)->exists();
     }
 
+    public static function userWallet($user_id)
+    {
+        $wallet = Wallet::query()->firstOrCreate(['user_id' => $user_id]);
+        app(PayService::class)->updateSign($wallet->toArray());
+        return $wallet;
+    }
+
     public static function checkParam($data)
     {
 
@@ -83,7 +100,7 @@ class User extends Authenticatable
         }
 
         $res = self::checkPassword($data);
-        if($res) return $res;
+        if ($res) return $res;
         return null;
     }
 
@@ -101,7 +118,7 @@ class User extends Authenticatable
     public static function resetPassword($data)
     {
         $res = self::checkPassword($data);
-        if($res) return $res;
+        if ($res) return $res;
         if (Hash::check($data['nowpassword'], User::find(Auth::id())->password)) {
             Auth::user()->update(['password' => Hash::make($data['password'])]);
             return 'update';
@@ -185,8 +202,9 @@ class User extends Authenticatable
         return $data;
     }
 
-    public static function saveAvatar($path){
-        Auth::user()->update(['avatar'=>$path]);
+    public static function saveAvatar($path)
+    {
+        Auth::user()->update(['avatar' => $path]);
         return $path;
     }
 }

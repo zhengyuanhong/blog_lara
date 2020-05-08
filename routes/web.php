@@ -27,7 +27,8 @@ Route::post('/article/reply', 'CommentController@reply')->middleware('checkAuth'
 //支付
 Route::get('/pay','WechatPaymentController@pay')->middleware('checkAuth');
 Route::post('/notify','WechatPaymentController@notify');
-
+//充值
+Route::post('/recharge','User\WalletController@recharge')->middleware('checkAuth');
 
 Route::namespace('api')->group(function () {
     Route::get('/own-article', 'ArticleController@articleApi')->middleware('checkAuth');
@@ -47,9 +48,8 @@ Route::prefix('users')->namespace('User')->group(function () {
     Route::get('message', 'UserInfoController@message')->middleware('checkAuth')->name('user.message');
     Route::get('/{user}', 'UserInfoController@userInfo')->name('user.detail');
     Route::get('/u/recharge', 'UserInfoController@rechargePage')->middleware('checkAuth')->name('user.recharge');
+    Route::get('/u/wallet','WalletController@show');
 });
-
-
 
 //登陆、注册、退出
 Route::namespace('User')->group(function () {

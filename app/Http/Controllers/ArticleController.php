@@ -47,10 +47,10 @@ class ArticleController extends Controller
     }
 
     public function updateArticle(ArticleRequest $request){
-        $article_id = $request->get('id');
-        $request->validated('update',Article::query()->find($article_id));
+        $articleId = $request->get('id');
+        $request->validated('update',Article::query()->find($articleId));
         $data = $request->except('_token','file','id');
-        Article::query()->find($article_id)->update($data);
+        Article::query()->find($articleId)->update($data);
         return view('tip.message')->with('msg','更新成功');
     }
 
