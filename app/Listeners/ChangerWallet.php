@@ -19,21 +19,21 @@ class ChangerWallet
     public function handle($event)
     {
 
-        /** @var Order  $event */
-        /** @var Wallet $wallet */
-        $wallet = Wallet::query()->where('user_id',$event->user_id)->first();
-        $wallet->income = (float)$wallet->income + (float)$event->price;
-        $wallet->balance_fee = (float)$wallet->balance_fee + (float)$event->price ;
+        /** @var Order $order */
+        $order = $event->getOrder();
+        $wallet = Wallet::query()->where('user_id',$order->user_id)->first();
+        $wallet->income = (float)$wallet->income + (float)$order->price;
+        $wallet->balance_fee = (float)$wallet->balance_fee + (float)$order->price ;
         $wallet->save();
         Log::info('钱包充值成功');
 
         /** @var WalletLog $walletLog */
         $walletLog = new WalletLog();
-        $walletLog->user_id = $event->user_id;
-        $walletLog->trade_no = $event->trade_no;
-        $walletLog->type = $event->type;
-        $walletLog->fee = $event->price;
-        $walletLog->status = $event->pay_status=='success'?1:0;
+        $walletLog->user_id = $order->user_id;
+        $walletLog->trade_no = $order->trade_no;
+        $walletLog->type = $order->type;
+        $walletLog->fee = $order->price;
+        $walletLog->status = $order->pay_status=='success'?1:0;
         $walletLog->save();
         Log::info('钱包充值日志');
     }

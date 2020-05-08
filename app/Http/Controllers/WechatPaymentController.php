@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\OrderPaid;
+use App\Models\Order;
 use App\Services\PayService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -34,7 +36,13 @@ class WechatPaymentController extends Controller
     public function notify(Request $request){
         $data = $request->all();
         $res =$this->wx_pay->notify($data);
-        if($res) Log::info('success 支付成功');
+        if($res!=true){
+            Log::info('success 支付成功');
+            $this->afterPid($res);
+        }
         return 'success';
+    }
+    public function afterPid(Order $order){
+        event(new OrderPaid($order));
     }
 }
