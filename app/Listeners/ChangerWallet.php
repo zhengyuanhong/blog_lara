@@ -18,9 +18,10 @@ class ChangerWallet
      */
     public function handle($event)
     {
-        /** @var Wallet $wallet */
-        $wallet = $event->user()->wallet;
+
         /** @var Order  $event */
+        /** @var Wallet $wallet */
+        $wallet = Wallet::query()->where('user_id',$event->user_id)->first();
         $wallet->income = (float)$wallet->income + (float)$event->price;
         $wallet->balance_fee = (float)$wallet->balance_fee + (float)$event->price ;
         $wallet->save();
