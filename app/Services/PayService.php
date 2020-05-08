@@ -38,12 +38,12 @@ class PayService
                 $order = Order::query()->where('trade_no',$trade_order_id)->first();
                 //如果订单已经处理
                 if(in_array($order->pay_status,[Order::PAY_STATUS_SUCCESS,Order::PAY_STATUS_FAILED])){
-                    Log::info('订单已经处理::trade_no' . $trade_order_id);
+                    Log::info('订单已经处理::trade_no::' . $trade_order_id);
                     return true;
                 }
                 //如果已经支付
                 if($order->pay_at){
-                    Log::info('已经支付成功::trade_no' . $trade_order_id);
+                    Log::info('已经支付成功::trade_no::' . $trade_order_id);
                    return true;
                 }
                 //否则处理订单
@@ -51,12 +51,17 @@ class PayService
                     'pay_at'=>Carbon::now(),
                     'pay_status'=>Order::PAY_STATUS_SUCCESS
                 ]);
-                Log::info('支付成功::trade_no' . $trade_order_id);
+                Log::info('支付成功::trade_no:' . $trade_order_id.'::'.__FILE__);
+                $this->afterPid($order);
                 return $order;
             } else {
                 Log::info('un success OD 回调函数::' . $trade_order_id);
             }
         });
+    }
+
+    public function afterPid(Order $order){
+        event(new OrderPaid($order));
     }
 
     public function removeKey($wallet)

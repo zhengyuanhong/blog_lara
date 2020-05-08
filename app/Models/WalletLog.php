@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  *@property  string fee 金额
  *@property  string status 1：已完成 0：未完成
  *@property  string created_at 创建时间
+ *@property  string updated_at 创建时间
  */
 class WalletLog extends Model
 {

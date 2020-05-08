@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Events\OrderPaid;
 use App\Services\OrderService;
 use App\Services\PayService;
 use Illuminate\Http\Request;

@@ -36,13 +36,9 @@ class WechatPaymentController extends Controller
     public function notify(Request $request){
         $data = $request->all();
         $res =$this->wx_pay->notify($data);
-        if($res!=true){
+        if($res){
             Log::info('success 支付成功');
-            $this->afterPid($res);
         }
         return 'success';
-    }
-    public function afterPid(Order $order){
-        event(new OrderPaid($order));
     }
 }

@@ -5,6 +5,7 @@ namespace App\Listeners;
 use App\Models\Order;
 use App\Models\Wallet;
 use App\Models\WalletLog;
+use App\Services\PayService;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Log;
@@ -18,13 +19,13 @@ class ChangerWallet
      */
     public function handle($event)
     {
-
         /** @var Order $order */
         $order = $event->getOrder();
         $wallet = Wallet::query()->where('user_id',$order->user_id)->first();
         $wallet->income = (float)$wallet->income + (float)$order->price;
         $wallet->balance_fee = (float)$wallet->balance_fee + (float)$order->price ;
         $wallet->save();
+        app(PayService::class)->updateSign($wallet->toArray());
         Log::info('钱包充值成功');
 
         /** @var WalletLog $walletLog */
