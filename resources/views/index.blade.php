@@ -13,9 +13,9 @@
                     @foreach($article as $a)
                         <ul class="fly-list">
                             <li>
-                                <a href="{{route('user.detail',['user'=>$a->user_id])}}" class="fly-avatar">
-                                    <img src="{{$a->user_avatar}}"
-                                         alt="{{$a->user_name}}">
+                                <a href="{{route('user.detail',['user'=>$a->author->id])}}" class="fly-avatar">
+                                    <img src="{{$a->author->avatar}}"
+                                         alt="{{$a->author->name}}">
                                 </a>
                                 <h2>
                                     @if(isset($a->weight)&& $a->weight > 0)
@@ -24,8 +24,8 @@
                                     <a href="{{route('article.detail',['article'=>$a->id])}}">{{$a->title}}</a>
                                 </h2>
                                 <div class="fly-list-info">
-                                    <a href="{{route('user.detail',['user'=>$a->user_id])}}" link>
-                                        <cite>{{$a->username}}</cite>
+                                    <a href="{{route('user.detail',['user'=>$a->author->avatar])}}" link>
+                                        <cite>{{$a->author->name}}</cite>
                                         {{--<!----}}
                                         {{--<i class="iconfont icon-renzheng" title="认证信息：XXX"></i>--}}
                                         {{--<i class="layui-badge fly-badge-vip">VIP3</i>--}}
