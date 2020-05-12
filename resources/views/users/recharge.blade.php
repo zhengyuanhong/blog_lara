@@ -28,7 +28,7 @@
                 </table>
                 <form class="layui-form">
                     <div class="layui-input-inline">
-                        <input type="number" name="money" min="100" required lay-verify="required" placeholder="输入充值金额"
+                        <input type="number" name="money" maxlength="3" required lay-verify="required" placeholder="输入充值金额"
                                autocomplete="off" class="layui-input">
                     </div>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}"/>

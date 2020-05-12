@@ -25,8 +25,8 @@
     </li>
     <li class="layui-nav-item {{$type=='recharge'? 'layui-this':''}}">
         <a href="{{route('user.recharge')}}">
-            <i class="layui-icon">&#xe611;</i>
-            充值中心
+            <i class="layui-icon">&#xe65e;</i>
+            我的钱包
         </a>
     </li>
   </ul>
