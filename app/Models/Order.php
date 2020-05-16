@@ -36,7 +36,7 @@ class Order extends Model
     const ORDER_TYPE_BUY = 'buy'; //下单
 
     public static $orderTypeMap = [
-        self::ORDER_TYPE_RECHARGE =>'金币充值',
+        self::ORDER_TYPE_RECHARGE =>'钱包充值',
         self::ORDER_TYPE_BUY =>'购买服务'
     ];
 

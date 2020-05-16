@@ -28,8 +28,14 @@
                 </table>
                 <form class="layui-form">
                     <div class="layui-input-inline">
-                        <input type="number" name="money" maxlength="3" required lay-verify="required" placeholder="输入充值金额"
-                               autocomplete="off" class="layui-input">
+                        <input type="radio" name="money" value="1" title="1元">
+                        <input type="radio" name="money" value="2" title="2元">
+                        <input type="radio" name="money" value="5" title="5元">
+                        <input type="radio" name="money" value="10" title="10元">
+                        <input type="radio" name="money" value="30" title="30元">
+                        <input type="radio" name="money" value="50" title="50元">
+                        <input type="radio" name="money" value="80" title="80元">
+                        <input type="radio" name="money" value="100" title="100元">
                     </div>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                     <button class="layui-btn" lay-submit lay-filter="recharge">立即充值</button>

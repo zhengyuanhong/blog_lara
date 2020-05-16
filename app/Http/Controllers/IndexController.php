@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Categories;
 use App\Models\FineLink;
-use App\Utils\Wx\WxPayment;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
 
 class IndexController extends Controller
 {
