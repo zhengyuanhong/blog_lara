@@ -38,7 +38,9 @@ class ArticleController extends AdminController
         $grid->column('category.name', __('分类名'));
         $grid->column('title', __('标题'));
         $grid->column('content', __('内容'));
-
+        $grid->column('comments', __('评论数'))->display(function($v){
+            return count($v);
+        });
         $states = [
             'on'  => ['value' => 1, 'text' => '显示', 'color' => 'primary'],
             'off' => ['value' => 0, 'text' => '隐藏', 'color' => 'default'],
