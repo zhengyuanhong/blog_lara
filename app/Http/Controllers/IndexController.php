@@ -21,6 +21,7 @@ class IndexController extends Controller
 //            ->orderBy('created_at', 'desc')
 //            ->paginate(20);
         $article = Article::query()->with(['author','category'])
+            ->where('is_show',1)
             ->orderBy('weight','desc')
             ->orderBy('created_at','desc')
             ->paginate(20);
