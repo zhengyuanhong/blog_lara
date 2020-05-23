@@ -176,30 +176,26 @@ class User extends Authenticatable
     public static function ownArticle()
     {
         $articles = User::find(Auth::id())->articles()->orderBy('created_at', 'desc')->paginate(20);
-        $data = [];
-        foreach ($articles as $v) {
+        return $articles->map(function ($v){
             $temp = [];
             $temp['id'] = $v->id;
             $temp['title'] = $v->title;
             $temp['comment_num'] = $v->comments()->count();
             $temp['created_at'] = app()->make('time_format')->timeFormat($v->created_at);
-            $data[] = $temp;
-        }
-        return $data;
+            return $temp;
+        });
     }
 
     public static function favoriteArticles()
     {
         $favorite_articles = User::query()->find(Auth::id())->collectArt()->orderBy('favorite.created_at', 'desc')->paginate(20);
-        $data = [];
-        foreach ($favorite_articles as $v) {
+        return $favorite_articles->map( function($v) {
             $temp = [];
             $temp['id'] = $v->id;
             $temp['title'] = $v->title;
             $temp['created_at'] = app()->make('time_format')->timeFormat($v->pivot->created_at);
-            $data[] = $temp;
-        }
-        return $data;
+            return $temp;
+        });
     }
 
     public static function saveAvatar($path)
