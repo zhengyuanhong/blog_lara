@@ -27,7 +27,7 @@ class ArticleController extends AdminController
         $grid = new Grid(new Article());
 
         $grid->column('id', __('序号'));
-        $grid->column('author.name', __('用户名'));
+        $grid->column('author.name', __('作者'));
         $grid->column('type', __('类型'))->display(function($v){
             return $v??'无';
         });
@@ -62,7 +62,7 @@ class ArticleController extends AdminController
         $show = new Show(Article::findOrFail($id));
 
         $show->field('id', __('序号'));
-        $show->field('user_id', __('用户id'));
+        $show->field('user_id', __('作者id'));
         $show->field('type', __('类型'));
         $show->field('tag', __('标签'));
         $show->field('category_id', __('分类id'));
@@ -85,7 +85,7 @@ class ArticleController extends AdminController
     {
         $form = new Form(new Article());
 
-        $form->number('user_id', __('用户id'));
+        $form->number('user_id', __('作者id'));
         $form->text('type', __('类型'));
         $form->text('tag', __('标签'));
         $form->number('category_id', __('分类id'));
