@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -49,5 +50,15 @@ class UserInfoController extends Controller
         $type = 'recharge';
         $userWallet = User::userWallet(Auth::id());
         return view('users.recharge',compact('type','userWallet'));
+    }
+
+    public function orderPage(){
+        $type = 'order';
+        /** @var User $userOrder */
+        $query = User::query()->find(Auth::id())->order();
+        $userOrder = $query->orderBy('created_at','desc')->paginate(10);
+        //总额度
+        $total =$query->whereNotNull('pay_at')->sum('price');
+        return view('users.order',compact('type','userOrder','total'));
     }
 }

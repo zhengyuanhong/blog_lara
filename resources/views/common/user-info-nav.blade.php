@@ -29,6 +29,14 @@
             我的钱包
         </a>
     </li>
+
+    <li class="layui-nav-item {{$type=='order'? 'layui-this':''}}">
+        <a href="{{route('user.order')}}">
+            <i class="layui-icon">&#xe65e;</i>
+            我的订单
+        </a>
+    </li>
+
   </ul>
 
   <div class="site-tree-mobile layui-hide">

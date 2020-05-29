@@ -48,6 +48,7 @@ Route::prefix('users')->namespace('User')->group(function () {
     Route::get('message', 'UserInfoController@message')->middleware('checkAuth')->name('user.message');
     Route::get('/{user}', 'UserInfoController@userInfo')->name('user.detail');
     Route::get('/u/recharge', 'UserInfoController@rechargePage')->middleware('checkAuth')->name('user.recharge');
+    Route::get('/u/order', 'UserInfoController@orderPage')->middleware('checkAuth')->name('user.order');
     Route::get('/u/wallet','WalletController@show');
 });
 
