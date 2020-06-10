@@ -33,7 +33,7 @@
     <li class="layui-nav-item {{$type=='order'? 'layui-this':''}}">
         <a href="{{route('user.order')}}">
             <i class="layui-icon">&#xe735;</i>
-            我的订单
+            支付记录
         </a>
     </li>
 
