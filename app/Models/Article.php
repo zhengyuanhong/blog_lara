@@ -67,6 +67,6 @@ class Article extends Model
      */
     public function scopeResentArticle($query)
     {
-        return $query->orderBy('created_at', 'desc');
+        return $query->orderBy('created_at', 'desc')->where('is_show',1);
     }
 }
