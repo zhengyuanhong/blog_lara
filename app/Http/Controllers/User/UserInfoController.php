@@ -40,6 +40,7 @@ class UserInfoController extends Controller
             ->orderBy('created_at','desc')
             ->get();
         $articles = $user->articles()
+            ->where('is_show',1)
             ->limit(30)
             ->orderBy('created_at','desc')
             ->get();
