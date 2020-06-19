@@ -39,6 +39,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
     public function notify($instance)
     {
         if ($this->id == Auth::id()) {

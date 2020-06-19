@@ -48,6 +48,10 @@
                         <dd><a href="{{route('user.set')}}"><i class="layui-icon">&#xe620;</i>基本设置</a></dd>
                         <dd><a style="text-align: center;" href="{{route('user.message')}}">我的消息：<span style="color: red;">{{request()->user()->unreadNotifications->count()}}</span></a>
                         </dd>
+
+                        <dd><a style="text-align: center;" href="{{route('user.recharge')}}">余额：<span style="color: red;">{{request()->user()->wallet->balance_fee}}元</span></a>
+                        </dd>
+
                         <hr style="margin: 5px 0;">
                         <dd><a href="{{url('/logout')}}" style="text-align: center;">退出</a></dd>
                     </dl>
