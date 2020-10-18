@@ -18,6 +18,7 @@ class InstallShip extends Mailable
      * @return void
      */
     protected $items;
+    public $subject='通知：本月还款账单已出';
 
     public function __construct($items)
     {
