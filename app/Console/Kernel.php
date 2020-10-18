@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\NotifyRepay;
 use App\Console\Commands\RemoveImg;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -14,7 +15,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        RemoveImg::class
+        RemoveImg::class,
+        NotifyRepay::class
     ];
 
     /**
@@ -27,6 +29,9 @@ class Kernel extends ConsoleKernel
     {
         //每周删本地图片文件
         $schedule->command('z:remove')->weekly();
+        //每月提醒账单
+//        $schedule->command('z:Notify-user')->monthlyOn(13,'9:00');
+        $schedule->command('z:Notify-user')->dailyAt('8:00');
     }
 
     /**
