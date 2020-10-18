@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 
 /**
@@ -39,7 +40,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-
     public function notify($instance)
     {
         if ($this->id == Auth::id()) {
@@ -53,8 +53,14 @@ class User extends Authenticatable
         return $this->hasOne(Wallet::class, 'user_id', 'id');
     }
 
-    public function order(){
-        return $this->hasMany(Order::class,'user_id','id');
+    public function weBoAccount()
+    {
+        return $this->hasOne(ThirdAccount::class, 'user_id', 'id');
+    }
+
+    public function order()
+    {
+        return $this->hasMany(Order::class, 'user_id', 'id');
     }
 
     public function articles()
@@ -120,21 +126,58 @@ class User extends Authenticatable
     {
         $res = self::checkPassword($data);
         if ($res) return $res;
-        if (Hash::check($data['nowpassword'], User::find(Auth::id())->password)) {
-            Auth::user()->update(['password' => Hash::make($data['password'])]);
-            return 'update';
-        }
-        return '原密码不正确';
+        Auth::user()->update(['password' => Hash::make($data['password'])]);
+        return 'update';
     }
 
-    public static function register($data)
+    public static function createUser($type, $data)
     {
         $user = new self;
-        $user->name = $data['name'];
-        $user->email = $data['email'];
-        $user->password = Hash::make($data['password']);
+        switch ($type) {
+            case 'reg':
+                $user->name = $data['name'];
+                $user->email = $data['email'];
+                $user->password = Hash::make($data['password']);
+                break;
+            case 'webo':
+                $user->name = $data['name'];
+                $user->email = date('His').'@songyu.com';
+                $user->avatar = $data['avatar_large'];
+                $user->sex = $data['gender'] == 'm' ? 1 : 0;
+                $user->password = Hash::make(md5(random_int(10000000,999999999)));
+                break;
+        }
         $user->rich = 10;
         $user->save();
+
+        Log::info('登录1:'.__LINE__);
+        Auth::loginUsingId($user->id);
+        Log::info('登录2:'.__LINE__);
+
+        return $user;
+    }
+
+    public static function register($type, $data)
+    {
+        $user = self::createUser($type, $data);
+        //注册时创建钱包
+        self::userWallet($user->id);
+        //绑定微博账号
+        if($type=='webo'){
+            self::bindWebo($data['id'], $user);
+        }
+    }
+
+    public static function bindWebo($webo_uid, $user)
+    {
+        if (isset($webo_uid)) {
+            if ($third_account = ThirdAccount::query()->where('webo_uid', $webo_uid)->first()) {
+                $third_account->user_id = $user->id;
+                $third_account->save();
+            } else {
+                ThirdAccount::create(['webo_uid' => $webo_uid, 'user_id' => $user->id]);
+            }
+        }
     }
 
     public static function logout()
@@ -177,7 +220,7 @@ class User extends Authenticatable
     public static function ownArticle()
     {
         $articles = User::find(Auth::id())->articles()->orderBy('created_at', 'desc')->paginate(20);
-        return $articles->map(function ($v){
+        return $articles->map(function ($v) {
             $temp = [];
             $temp['id'] = $v->id;
             $temp['title'] = $v->title;
@@ -190,7 +233,7 @@ class User extends Authenticatable
     public static function favoriteArticles()
     {
         $favorite_articles = User::query()->find(Auth::id())->collectArt()->orderBy('favorite.created_at', 'desc')->paginate(20);
-        return $favorite_articles->map( function($v) {
+        return $favorite_articles->map(function ($v) {
             $temp = [];
             $temp['id'] = $v->id;
             $temp['title'] = $v->title;

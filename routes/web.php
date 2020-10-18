@@ -59,6 +59,7 @@ Route::namespace('User')->group(function () {
     Route::get('/reg', 'UserController@goToReg');
     Route::post('/reg', 'UserController@reg');
     Route::get('/logout', 'UserController@logout');
+    Route::get('/callback', 'UserController@callback');
 });
 
 

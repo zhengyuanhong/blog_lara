@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\RepaymentNotify;
 use App\Models\Article;
 use App\Models\Categories;
 use App\Models\FineLink;
@@ -20,10 +21,15 @@ class IndexController extends Controller
 //            ->orderBy('weight', 'desc')
 //            ->orderBy('created_at', 'desc')
 //            ->paginate(20);
-        $article = Article::query()->with(['author','category'])
-            ->where('is_show',1)
-            ->orderBy('weight','desc')
-            ->orderBy('created_at','desc')
+        $query = Article::query()->with(['author', 'category']);
+
+        if ($category = $request->get('category')) {
+            $query = $query->where('category_id', $request->get('category'));
+        }
+
+        $article = $query->where('is_show', 1)
+            ->orderBy('weight', 'desc')
+            ->orderBy('created_at', 'desc')
             ->paginate(20);
         $category = Categories::query()->where('is_show', 1)->get()->toArray();
         $fineLink = FineLink::all()->toArray();

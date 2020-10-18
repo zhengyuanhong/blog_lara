@@ -19,7 +19,7 @@ class UserController extends Controller
 
     public function setInfo(Request $request)
     {
-        $data = $request->except('_token', 'email');
+        $data = $request->except('_token');
         $user = Auth::user();
         $user->update($data);
         return Response()->json(['code' => 200, 'msg' => '修改成功']);

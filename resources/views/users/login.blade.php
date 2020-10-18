@@ -31,9 +31,9 @@
                   @endif
                 </div>
               </div>
-
               <div class="layui-form-item">
                 <button class="layui-btn" lay-filter="login" lay-submit>立即登录</button>
+                <a class="layui-btn layui-btn-normal" href="{{$authorizeUrl}}">微博登录</a>
                 <span style="padding-left:20px;">
                   {{--<a href="forget.html">忘记密码？</a>--}}
                 </span>

@@ -17,7 +17,7 @@
                                 <label for="L_email" class="layui-form-label">邮箱</label>
                                 <div class="layui-input-inline">
                                     <input type="text" id="L_email" name="email" required lay-verify="email"
-                                           autocomplete="off" disabled value="{{$user->email}}" class="layui-input">
+                                           autocomplete="off" value="{{$user->email}}" class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-form-item">
@@ -64,14 +64,6 @@
 
                     <div class="layui-form layui-form-pane layui-tab-item">
                         <form action="" method="post">
-                            <div class="layui-form-item">
-                                <label for="L_nowpass" class="layui-form-label">当前密码</label>
-                                <div class="layui-input-inline">
-                                    <input type="password" id="L_nowpass" name="nowpassword" required
-                                           lay-verify="required"
-                                           autocomplete="off" class="layui-input">
-                                </div>
-                            </div>
                             <div class="layui-form-item">
                                 <label for="L_pass" class="layui-form-label">新密码</label>
                                 <div class="layui-input-inline">
