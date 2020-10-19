@@ -20,7 +20,7 @@
             <li>还剩金额：{{$sub_money[$key]}}元</li>
         </ol>
     @endforeach
-    <p>总共{{$total}}元</p>
+    <p>当月共需要还{{$total}}元</p>
     <p>转账账号</p>
     <ol>
         <li>微 信：好友转账</li>
