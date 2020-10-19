@@ -18,11 +18,13 @@ class InstallShip extends Mailable
      * @return void
      */
     protected $items;
+    protected $subMoney;
     public $subject='通知：本月还款账单已出';
 
-    public function __construct($items)
+    public function __construct($items,$subMoney)
     {
         $this->items = $items;
+        $this->subMoney = $subMoney;
     }
 
     /**
@@ -36,6 +38,6 @@ class InstallShip extends Mailable
         foreach($this->items as $item){
             $total +=$item->fee;
         }
-        return $this->view('email.notify')->with(['items' => $this->items,'total'=>$total]);
+        return $this->view('email.notify')->with(['items' => $this->items,'total'=>$total,'sub_money'=>$this->subMoney]);
     }
 }

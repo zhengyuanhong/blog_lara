@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Mail\InstallShip;
+use App\Models\Installment;
 use App\Models\InstallmentItem;
 use Carbon\Carbon;
 use function foo\func;
@@ -47,6 +48,14 @@ class NotifyRepay extends Command
             $query->where('user_id',1);
         })->whereBetween('repay_date',[Carbon::now()->firstOfMonth(),Carbon::now()->lastOfMonth()])->get();
 
-        Mail::to('1713639570@qq.com')->send(new InstallShip($res));
+        InstallmentItem::query()->whereBetween('repay_date',[Carbon::now()->subMonth()->firstOfMonth(),Carbon::now()->subMonth()->lastOfMonth()])->update(['status'=>1]);
+
+        $total = [];
+        $installments = Installment::query()->where('user_id',1)->get();
+        /** @var Installment $installment */
+        foreach($installments as $installment){
+            $total[] = $installment->items()->where('status',0)->sum('fee');
+        }
+        Mail::to($res[0]->installment->notify)->send(new InstallShip($res,$total));
     }
 }
