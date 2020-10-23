@@ -8,6 +8,7 @@ use App\Models\InstallmentItem;
 use Carbon\Carbon;
 use function foo\func;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use PharIo\Manifest\Email;
 
@@ -56,6 +57,7 @@ class NotifyRepay extends Command
         foreach($installments as $installment){
             $total[] = $installment->items()->where('status',0)->sum('fee');
         }
+        Log::info('发送邮件到'.$res[0]->installment->notify);
         Mail::to($res[0]->installment->notify)->send(new InstallShip($res,$total));
     }
 }
