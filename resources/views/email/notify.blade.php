@@ -17,7 +17,7 @@
             <li>消费项目：{{$item->installment->name}}</li>
             <li>分 期 数：{{$item->installment->base}}期</li>
             <li>还款金额：{{$item->fee}}元</li>
-            <li>还剩金额：{{$sub_money[$key]}}元</li>
+            <li>已还金额：{{$sub_money[$key]}}元</li>
         </ol>
     @endforeach
     <p>当月共需要还{{$total}}元</p>
