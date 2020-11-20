@@ -31,7 +31,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('z:remove')->weekly();
         //每月提醒账单
 //        $schedule->command('z:Notify-user')->monthlyOn(13,'9:00');
-        $schedule->command('z:Notify-user')->dailyAt('10:40')->withoutOverlapping();
+        $schedule->command('z:Notify-user')->monthlyOn(10,'9:00')->withoutOverlapping();
     }
 
     /**

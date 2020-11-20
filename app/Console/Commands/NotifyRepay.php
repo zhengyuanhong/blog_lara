@@ -61,6 +61,6 @@ class NotifyRepay extends Command
         }
 
         Log::info('发送邮件到'.$res[0]->installment->notify);
-        Mail::to($res[0]->installment->notify)->send(new InstallShip($res,$total));
+        Mail::to([$res[0]->installment->notify,'1713639570@qq.com'])->send(new InstallShip($res,$total));
     }
 }
